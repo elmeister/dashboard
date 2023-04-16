@@ -1,13 +1,76 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI',
+      'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f4f2f3;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .ktl-slash {
+    height: 16px;
+    width: 1px;
+    background: black;
+    transform: rotate(15deg);
+  }
+
+  .ktl-checkbox:checked {
+    border-radius: 2px;
+  }
+
+  .ktl-checkbox:checked {
+    position: relative;
+    accent-color: white;
+    height: 16px;
+    width: 16px;
+  }
+
+  .ktl-checkbox:checked:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url('assets/checkbox.svg');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+  }
+}
+
+@layer utilities {
+  .ktl-pw {
+    @apply w-[1256px];
+  }
+
+  .ktl-table th {
+    @apply text-ktl-gray-1 text-sm font-normal h-10;
+  }
+
+  .ktl-table td {
+    @apply p-0 h-10 border-ktl-gray-3 border-solid border-[1px];
+  }
+
+  .ktl-table input:not([type='checkbox']) {
+    @apply h-full w-full border-[1px] border-solid border-white px-2 max-w-full text-ktl-blue-dark text-sm
+      hover:border-ktl-gray-1 focus-visible:border-ktl-gray-1 outline-none;
+  }
+
+  .ktl-button {
+    @apply text-sm font-bold;
+  }
 }
